@@ -19,6 +19,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use("/health", (req, res) => {
+  res.status(200).send("please");
+});
+
 app.use("/", loginRouter);
 app.use("/", createUserRouter);
 app.use("/", createInvoiceRouter);
