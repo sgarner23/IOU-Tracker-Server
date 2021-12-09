@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 
 async function validateUser(req, res, next) {
   try {
-    if (!req.headers.access_token || !req.headers.access_token) {
+    console.log(req.headers);
+    if (!req.headers.access_token) {
       return res.status(401).send({ message: "Missing JWT validation" });
     }
     //make sure the cookie was signed with the right jwt secret
